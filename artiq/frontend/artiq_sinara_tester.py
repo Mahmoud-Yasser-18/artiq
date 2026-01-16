@@ -471,7 +471,7 @@ class SinaraTester(EnvExperiment):
         print("Frequencies:")
         for card_n, channels in enumerate(chunker(self.mirnies, 4)):
             for channel_n, (channel_name, channel_dev) in enumerate(channels):
-                frequency = 2000 + card_n * 250 + channel_n * 50
+                frequency = 3500 + card_n * 250 + channel_n * 50
                 print("{}\t{}MHz".format(channel_name, frequency*2))
                 self.setup_mirny(channel_dev, frequency)
         print("RF ON, attenuators are tested. Press ENTER when done.")
