@@ -455,7 +455,7 @@ class SinaraTester(EnvExperiment):
             setting = led << 7 | rf_en << 6 | (att_mu & 0x3F)
             for ch in almaznys:
                 ch.set_mu(setting)
-            delay(250*ms)
+            delay(1000*ms)
             if att_mu == 0:
                 att_mu = 1
             else:
