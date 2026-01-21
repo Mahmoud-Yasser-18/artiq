@@ -17,4 +17,4 @@ To determine which user is locking a board, use a command such as:
 Deleting git branches
 =====================
 
-Never use ``git push origin :branch`` nor ``git push origin --delete branch``, as this can delete code that others have pushed without warning. Instead, always delete branches using the GitHub web interface that lets you check better if the branch you are deleting has been fully merged.
+Never use ``git push origin :branch`` nor ``git push origin --delete branch``, as this can delete code that others have pushed without warning. Instead, always delete branches using the Gitea web interface that lets you check better if the branch you are deleting has been fully merged.

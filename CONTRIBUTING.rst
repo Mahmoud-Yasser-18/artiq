@@ -1,12 +1,12 @@
-.. Github links to this from the new issue page
-   https://github.com/m-labs/artiq/issues/new. Keep relevant information for
+.. Gitea links to this from the new issue page
+   https://git.m-labs.hk/M-Labs/artiq/issues/new. Keep relevant information for
    bug reporting at the top.
 
 Reporting Issues/Bugs
 =====================
 
 Thanks for `reporting issues to ARTIQ
-<https://github.com/m-labs/artiq/issues/new>`_! You can also discuss issues and
+<https://git.m-labs.hk/M-Labs/artiq/issues/new>`_! You can also discuss issues and
 ask questions on IRC (the #m-labs channel on OFTC), the `Mattermost chat
 <https://chat.m-labs.hk>`_, or in the `forum <https://forum.m-labs.hk>`_.
 
