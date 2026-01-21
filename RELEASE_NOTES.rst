@@ -208,7 +208,7 @@ Highlights:
      execution.
 * Performance improvements:
    - SERDES TTL inputs can now detect edges on pulses that are shorter
-     than the RTIO period (https://github.com/m-labs/artiq/issues/1432)
+     than the RTIO period (https://github.com/m-labs/artiq/pull/1432)
    - Improved performance for kernel RPC involving list and array.
 * Coredevice SI to mu conversions now always return valid codes, or raise a ``ValueError``.
 * Zotino now exposes  ``voltage_to_mu()``
@@ -262,14 +262,14 @@ Highlights:
 
 * Performance improvements:
    - Faster RTIO event submission (1.5x improvement in pulse rate test)
-     See: https://github.com/m-labs/artiq/issues/636
+     See: https://git.m-labs.hk/M-Labs/artiq/issues/615
    - Faster compilation times (3 seconds saved on kernel compilation time on a typical
      medium-size experiment)
-     See: https://github.com/m-labs/artiq/commit/611bcc4db4ed604a32d9678623617cd50e968cbf
+     See: https://git.m-labs.hk/M-Labs/artiq/commit/611bcc4db4ed604a32d9678623617cd50e968cbf
 * Improved packaging and build system:
    - new continuous integration/delivery infrastructure based on Nix and Hydra,
      providing reproducibility, speed and independence.
-   - rolling release process (https://github.com/m-labs/artiq/issues/1326).
+   - rolling release process (https://git.m-labs.hk/M-Labs/artiq/issues/1171).
    - firmware, gateware and device database templates are automatically built for all
      supported Kasli variants.
    - new JSON description format for generic Kasli systems.
@@ -289,7 +289,7 @@ Highlights:
   the core device driver and ``artiq.gateware.rtio.phy.edge_counter``/
   ``artiq.gateware.eem.DIO.add_std`` for the gateware components.
 * With DRTIO, Siphaser uses a better calibration mechanism.
-  See: https://github.com/m-labs/artiq/commit/cc58318500ecfa537abf24127f2c22e8fe66e0f8
+  See: https://git.m-labs.hk/M-Labs/artiq/commit/cc58318500ecfa537abf24127f2c22e8fe66e0f8
 * Schedule updates can be sent to influxdb (artiq_influxdb_schedule).
 * Experiments can now programatically set their default pipeline, priority, and flush flag.
 * List datasets can now be efficiently appended to from experiments using
@@ -489,7 +489,7 @@ No further notes.
   are lower-priority experiments in the pipeline. Only experiments at the current
   (or higher) priority level are flushed.
 * The PDQ(2/3) driver has been removed and is now being maintained out-of tree
-  at https://github.com/m-labs/pdq. All SPI/USB driver layers, Mediator,
+  at https://git.m-labs.hk/M-Labs/pdq. All SPI/USB driver layers, Mediator,
   CompoundPDQ and examples/documentation has been moved.
 * The master now rotates log files at midnight, rather than based on log size.
 * The results keys ``start_time`` and ``run_time`` are now stored as doubles of UNIX time,

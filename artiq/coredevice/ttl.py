@@ -122,7 +122,7 @@ class TTLInOut:
         # With TTLs inputs, the gate control is connected to a high-latency
         # path through SED. When looking at the RTIO counter to determine if
         # the gate has closed, we need to take this latency into account.
-        # See: https://github.com/m-labs/artiq/issues/1137
+        # See: https://git.m-labs.hk/M-Labs/artiq/issues/1058
         if gate_latency_mu is None:
             gate_latency_mu = 13*self.core.ref_multiplier
         self.gate_latency_mu = gate_latency_mu

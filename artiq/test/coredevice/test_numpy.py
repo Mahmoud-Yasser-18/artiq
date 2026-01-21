@@ -133,7 +133,7 @@ class CompareHostDeviceTest(ExperimentCase):
 
 
 class _MatrixMult(EnvExperiment):
-    """Regression test for GitHub #1578 (ICE when mixing different matrix multiplication
+    """Regression test for Gitea #1322 (ICE when mixing different matrix multiplication
     types in one kernel).
     """
     def build(self):

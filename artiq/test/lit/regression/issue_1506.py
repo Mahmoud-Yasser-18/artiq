@@ -2,7 +2,7 @@
 
 #
 # Check various sret-ized return types integrate properly with try/finally, which lowers
-# to `invoke` on the LLVM level (code adapted from GitHub #1506).
+# to `invoke` on the LLVM level (code adapted from Gitea #1287).
 #
 
 LIST = [1, 2]
