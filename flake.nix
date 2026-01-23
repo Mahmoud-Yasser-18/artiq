@@ -3,15 +3,13 @@
 
   inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-25.05;
   inputs.mozilla-overlay = { url = github:mozilla/nixpkgs-mozilla; flake = false; };
-  inputs.sipyco.url = github:m-labs/sipyco;
-  inputs.sipyco.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.src-pythonparser = { url = github:m-labs/pythonparser; flake = false; };
-  inputs.artiq-comtools.url = github:m-labs/artiq-comtools;
-  inputs.artiq-comtools.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.artiq-comtools.inputs.sipyco.follows = "sipyco";
+  inputs.sipyco = { url = "https://git.m-labs.hk/M-Labs/sipyco.git"; type = "git"; inputs.nixpkgs.follows = "nixpkgs"; };
+  inputs.src-pythonparser = { url = https://git.m-labs.hk/M-Labs/pythonparser.git; type = "git"; flake = false; };
+  inputs.artiq-comtools = { url = "https://git.m-labs.hk/M-Labs/artiq-comtools.git"; type = "git"; 
+                            inputs.nixpkgs.follows = "nixpkgs"; inputs.sipyco.follows = "sipyco"; };
 
-  inputs.src-migen = { url = github:m-labs/migen; flake = false; };
-  inputs.src-misoc = { type = "git"; url = "https://github.com/m-labs/misoc.git"; submodules = true; flake = false; };
+  inputs.src-migen = { url = "https://git.m-labs.hk/M-Labs/migen.git"; type = "git"; flake = false; };
+  inputs.src-misoc = { url = "https://git.m-labs.hk/M-Labs/misoc.git"; type = "git"; submodules = true; flake = false; };
 
   outputs = { self, nixpkgs, mozilla-overlay, sipyco, src-pythonparser, artiq-comtools, src-migen, src-misoc }:
     let
@@ -198,12 +196,10 @@
       asyncserial = pkgs.python3Packages.buildPythonPackage rec {
         pname = "asyncserial";
         version = "1.0";
-        src = pkgs.fetchFromGitHub {
-          owner = "m-labs";
-          repo = "asyncserial";
+        src = pkgs.fetchgit {
+          url = "https://git.m-labs.hk/M-Labs/asyncserial.git";
           rev = version;
           sha256 = "sha256-ZHzgJnbsDVxVcp09LXq9JZp46+dorgdP8bAiTB59K28=";
-
         };
         propagatedBuildInputs = [ pkgs.python3Packages.pyserial ];
       };
