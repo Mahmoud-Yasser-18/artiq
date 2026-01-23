@@ -52,7 +52,7 @@ setup(
     author_email="artiq@lists.m-labs.hk",
     url="https://m-labs.hk/artiq",
     description="Advanced Real-Time Infrastructure for Quantum physics",
-    long_description=open("README.rst", encoding="utf-8").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     license="LGPLv3+",
     classifiers="""\
 Development Status :: 5 - Production/Stable
