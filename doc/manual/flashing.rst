@@ -35,7 +35,7 @@ Note that this is **not** ``pkgs.openocd``; the latter is OpenOCD from the Nix p
 
   The board development shell is an alternative, non-minimal ARTIQ environment which includes additional tools for working with ARTIQ, including OpenOCD. You can enter it with: ::
 
-  $ nix develop git+https://github.com/m-labs/artiq\?ref=release-8#boards
+  $ nix develop git+https://git.m-labs.hk/M-Labs/artiq\?ref=release-8#boards
 
   However, unless you want more of these additional tools, it's usually preferable to use a lighter custom flake, such as the example in :doc:`installing`.
 

@@ -102,7 +102,7 @@ Nix development environment
 
     - If using NixOS, make the equivalent changes to your ``configuration.nix`` instead.
 
-* Clone `the ARTIQ Git repository <https://github.com/m-labs/artiq>`_, or `the ARTIQ-Zynq repository <https://git.m-labs.hk/M-Labs/artiq-zynq>`__ for Zynq devices (Kasli-SoC or ZC706). By default, you are working with the ``master`` branch, which represents the beta version and is not stable (see :doc:`releases`). Checkout the most recent release (``git checkout release-[number]``) for a stable version.
+* Clone `the ARTIQ Git repository <https://git.m-labs.hk/M-Labs/artiq>`_, or `the ARTIQ-Zynq repository <https://git.m-labs.hk/M-Labs/artiq-zynq>`__ for Zynq devices (Kasli-SoC or ZC706). By default, you are working with the ``master`` branch, which represents the beta version and is not stable (see :doc:`releases`). Checkout the most recent release (``git checkout release-[number]``) for a stable version.
 * If your Vivado installation is not in its default location ``/opt``, open ``flake.nix`` and edit it accordingly (note that the edits must be made in the main ARTIQ flake, even if you are working with Zynq, see also tip below).
 * Run ``nix develop`` at the root of the repository, where ``flake.nix`` is.
 
@@ -118,14 +118,14 @@ Once you have run ``nix develop`` you are in the ARTIQ development environment. 
 
         $ export PYTHONPATH=/absolute/path/to/your/artiq:$PYTHONPATH
 
-    Note that this only applies for incremental builds. If you want to use ``nix build``, or make changes to the dependencies, look into changing the inputs of the ``flake.nix`` instead. You can do this by replacing the URL of the GitHub ARTIQ repository with ``path:/absolute/path/to/your/artiq``; remember that Nix pins dependencies, so to incorporate new changes you will need to exit the development shell, update the environment with ``nix flake update``, and re-run ``nix develop``.
+    Note that this only applies for incremental builds. If you want to use ``nix build``, or make changes to the dependencies, look into changing the inputs of the ``flake.nix`` instead. You can do this by replacing the URL of the Gitea ARTIQ repository with ``path:/absolute/path/to/your/artiq``; remember that Nix pins dependencies, so to incorporate new changes you will need to exit the development shell, update the environment with ``nix flake update``, and re-run ``nix develop``.
 
 Building only standard binaries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are working with original ARTIQ, and you only want to build a set of standard binaries (i.e. without changing the source code), you can also enter the *boards* shell without cloning the repository, using ``nix develop`` as follows: ::
 
-    $ nix develop git+https://github.com/m-labs/artiq.git\?ref=release-[number]#boards
+    $ nix develop git+https://git.m-labs.hk/M-Labs/artiq.git\?ref=release-[number]#boards
 
 Leave off ``\?ref=release-[number]`` to prefer the current beta version instead of a numbered release.
 
@@ -134,7 +134,7 @@ Leave off ``\?ref=release-[number]`` to prefer the current beta version instead 
 
 The parallel command does exist for ARTIQ-Zynq: ::
 
-    $ nix develop git+https://git.m-labs.hk/m-labs/artiq-zynq\?ref=release-[number]
+    $ nix develop git+https://git.m-labs.hk/M-Labs/artiq-zynq\?ref=release-[number]
 
 but if you are building ARTIQ-Zynq without intention to change the source, it is not actually necessary to enter the development environment at all; Nix is capable of accessing the official flake directly to set up a build, eliminating the requirement for any particular environment. For original ARTIQ, the development environment (specifically the ``#boards`` shell) is still the easiest way to access the necessary tools for flashing a board.
 

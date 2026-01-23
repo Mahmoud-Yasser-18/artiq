@@ -81,7 +81,7 @@ and so on.
 
 .. automodule:: artiq_comtools.artiq_ctlmgr
 
-ARTIQ controller manager. Supplied in the separate package ``artiq-comtools``, which is included with a standard ARTIQ installation but can also be `installed standalone <https://github.com/m-labs/artiq-comtools>`_, with the intention of making it easier to run controllers and controller managers on machines where a full ARTIQ installation may not be necessary or convenient.
+ARTIQ controller manager. Supplied in the separate package ``artiq-comtools``, which is included with a standard ARTIQ installation but can also be `installed standalone <https://git.m-labs.hk/M-Labs/artiq-comtools>`_, with the intention of making it easier to run controllers and controller managers on machines where a full ARTIQ installation may not be necessary or convenient.
 
 .. argparse::
    :ref: artiq_comtools.artiq_ctlmgr.get_argparser

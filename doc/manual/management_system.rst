@@ -164,7 +164,7 @@ The ``scheduler`` virtual device also exposes information about an experiment's 
 Internal details
 ----------------
 
-Internally, the ARTIQ management system uses Simple Python Communications, or `SiPyCo <https://github.com/m-labs/sipyco>`_, which was originally written as part of ARTIQ and later split away as a generic communications library. The SiPyCo manual is hosted `here <https://m-labs.hk/artiq/sipyco-manual/>`_. The core of the management system is largely contained within ``artiq.master``, which contains the :class:`~artiq.master.scheduler.Scheduler`, the various environment and filesystem databases, and the worker processes that execute the experiments themselves.
+Internally, the ARTIQ management system uses Simple Python Communications, or `SiPyCo <https://git.m-labs.hk/M-Labs/sipyco>`_, which was originally written as part of ARTIQ and later split away as a generic communications library. The SiPyCo manual is hosted `here <https://m-labs.hk/artiq/sipyco-manual/>`_. The core of the management system is largely contained within ``artiq.master``, which contains the :class:`~artiq.master.scheduler.Scheduler`, the various environment and filesystem databases, and the worker processes that execute the experiments themselves.
 
 By default, the master communicates with other processes over four network ports, see :doc:`default_network_ports`, for logging, broadcasts, notifications, and control. All four of these can be customized by using the ``--port`` flags, see :ref:`the front-end reference<frontend-artiq-master>`.
 

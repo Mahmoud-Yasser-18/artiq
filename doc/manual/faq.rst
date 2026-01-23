@@ -21,11 +21,11 @@ build this documentation?
 
 To generate this manual from source, you can use ``nix build`` directives, for example: ::
 
-    $ nix build git+https://github.com/m-labs/artiq.git\?ref=release-[number]#artiq-manual-html
+    $ nix build git+https://git.m-labs.hk/M-Labs/artiq.git\?ref=release-[number]#artiq-manual-html
 
 Substitute ``artiq-manual-pdf`` to get the LaTeX PDF version. The results will be in ``result``.
 
-The manual is written in `reStructured Text <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_; you can find the source files in the ARTIQ repository under ``doc/manual``. If you spot a mistake, a typo, or something that's out of date or missing -- in particular, if you want to add something to this FAQ -- feel free to clone the repository, edit the source RST files, and make a pull request with your version of an improvement. (If you're not a fan of or not familiar with command-line Git, both GitHub and Gitea support making edits and pull requests directly in the web interface; tutorial materials are easy to find online.) The second best thing is to open an issue to make M-Labs aware of the problem.
+The manual is written in `reStructured Text <https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_; you can find the source files in the ARTIQ repository under ``doc/manual``. If you spot a mistake, a typo, or something that's out of date or missing -- in particular, if you want to add something to this FAQ -- feel free to clone the repository, edit the source RST files, and make a pull request with your version of an improvement. (If you're not a fan of or not familiar with command-line Git, Gitea supports making edits and pull requests directly in the web interface; tutorial materials are easy to find online.) The second best thing is to open an issue to make M-Labs aware of the problem.
 
 roll back to older versions of ARTIQ, or obtain it through other installation methods?
 --------------------------------------------------------------------------------------
@@ -339,11 +339,11 @@ For more advanced questions, sometimes the `list of publications <https://m-labs
     - How your problem happened, and what you've already tried to fix it
 
 - Compare your materials with the examples; see also :ref:`finding ARTIQ examples <faq-find-examples>` above.
-- Check the list of `active issues <https://github.com/m-labs/artiq/issues>`_ on the ARTIQ GitHub repository for possible known problems with ARTIQ. Search through the closed issues to see if your question or concern has been addressed before.
+- Check the list of `active issues <https://git.m-labs.hk/M-Labs/artiq/issues>`_ on the ARTIQ Gitea repository for possible known problems with ARTIQ. Search through the closed issues to see if your question or concern has been addressed before.
 - Search the `M-Labs forum <https://forum.m-labs.hk/>`_ for similar problems, or make a post asking for help yourself.
 - Look into the `Mattermost live chat <https://chat.m-labs.hk>`_ or the bridged IRC channel.
 - Read the open source code and its docstrings and figure it out.
-- If you're reasonably certain you've identified a bug, or if you'd like to suggest a feature that should be included in future ARTIQ releases, `file a GitHub issue <https://github.com/m-labs/artiq/issues/new/choose>`_ yourself, following one of the provided templates.
+- If you're reasonably certain you've identified a bug, or if you'd like to suggest a feature that should be included in future ARTIQ releases, `file a Gitea issue <https://git.m-labs.hk/M-Labs/artiq/issues/new>`_ yourself, following one of the provided templates.
 - In some odd cases, you may want to see the `mailing list archive <https://www.mail-archive.com/artiq@lists.m-labs.hk/>`_; the ARTIQ mailing list was shut down at the end of 2020 and was last regularly used during the time of ARTIQ-2 and 3, but for some older ARTIQ features, or to understand a development thought process, you may still find relevant information there.
 
 In any situation, if you found the manual unclear or unhelpful, you might consider following the :ref:`directions for contribution <build-documentation>` and editing it to be more helpful for future readers.

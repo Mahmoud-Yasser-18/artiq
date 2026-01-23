@@ -28,7 +28,7 @@ Absolute timestamps can be large numbers. They are represented internally as 64-
 
   The *coarse timestamp* of an event is its timestamp as according to the lower resolution of the coarse clock.   It is in practice a truncated version of the fine timestamp. In general, ARTIQ offers *precision* on the fine level, but *operates* at the coarse level; this is rarely relevant to the user, but understanding it may clarify the behavior of some RTIO issues (e.g. sequence errors).
 
-  .. Related: https://github.com/m-labs/artiq/issues/1237
+  .. Related: https://git.m-labs.hk/M-Labs/artiq/issues/1120
 
 The following basic example shows how to place output events on the timeline. It emits a precisely timed 2 µs pulse::
 

@@ -21,7 +21,7 @@ import sphinx_rtd_theme
 
 
 # Ensure that ARTIQ-Python types are correctly printed
-# See: https://github.com/m-labs/artiq/issues/741
+# See: https://git.m-labs.hk/M-Labs/artiq/issues/710
 import builtins
 builtins.__in_sphinx__ = True
 

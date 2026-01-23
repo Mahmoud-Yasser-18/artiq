@@ -1,7 +1,7 @@
 Developing a Network Device Support Package (NDSP)
 ==================================================
 
-Besides the kind of specialized real-time hardware most of ARTIQ is concerned with the control and management of, ARTIQ also easily handles more conventional 'slow' devices. This is done through *controllers*, based on `SiPyCo <https://github.com/m-labs/sipyco>`_ (manual hosted `here <https://m-labs.hk/artiq/sipyco-manual/>`_), which expose remote procedure call (RPC) interfaces to the network. This allows experiments to issue RPCs to the controllers as necessary, without needing to do direct I/O to the devices. Some advantages of this architecture include:
+Besides the kind of specialized real-time hardware most of ARTIQ is concerned with the control and management of, ARTIQ also easily handles more conventional 'slow' devices. This is done through *controllers*, based on `SiPyCo <https://git.m-labs.hk/M-Labs/sipyco>`_ (manual hosted `here <https://m-labs.hk/artiq/sipyco-manual/>`_), which expose remote procedure call (RPC) interfaces to the network. This allows experiments to issue RPCs to the controllers as necessary, without needing to do direct I/O to the devices. Some advantages of this architecture include:
 
 * Controllers/drivers can be run on different machines, alleviating cabling issues and OS compatibility problems.
 * Reduces the impact of driver crashes.

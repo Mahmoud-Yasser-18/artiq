@@ -29,7 +29,7 @@ The ARTIQ compiler recognizes several specialized decorators, which determine th
 ``@host_only`` (:meth:`~artiq.language.core.host_only`) functions are executed fully on the host, similarly to ``@rpc``, but calling them from a kernel as an RPC will be refused by the compiler. It can be used to mark functions which should only ever be called by the host.
 
 .. warning::
-    ARTIQ goes to some lengths to cache code used in experiments correctly, so that experiments run according to the state of the code when they were started, even if the source is changed during the run time. Python itself annoyingly fails to implement this (see also `issue #416 <https://github.com/m-labs/artiq/issues/416>`_), necessitating a workaround on ARTIQ's part. One particular downstream limitation is that the ARTIQ compiler is unable to recognize decorators with path prefixes, i.e.: ::
+    ARTIQ goes to some lengths to cache code used in experiments correctly, so that experiments run according to the state of the code when they were started, even if the source is changed during the run time. Python itself annoyingly fails to implement this (see also `issue #401 <https://git.m-labs.hk/M-Labs/artiq/issues/401>`_), necessitating a workaround on ARTIQ's part. One particular downstream limitation is that the ARTIQ compiler is unable to recognize decorators with path prefixes, i.e.: ::
 
          import artiq.experiment as aq
 

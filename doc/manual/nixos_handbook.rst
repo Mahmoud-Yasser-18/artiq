@@ -49,7 +49,7 @@ A reboot will be required for changes to take effect. See below to learn more ab
 
 In order to update to a **new release version of ARTIQ** (or to the beta) system-wide, first change the source used in ``flake.nix``: ::
 
-    inputs.artiq.url = git+https://github.com/m-labs/artiq.git?ref=release-<number>;
+    inputs.artiq.url = git+https://git.m-labs.hk/M-Labs/artiq.git?ref=release-<number>;
 
 (Remove ``?ref=release-<number>`` entirely for the beta branch). Then update and rebuild as above. Note however that ``sudo nix flake update`` and a rebuild will be required every time to incorporate new commits, and for easy access to the beta it may be better to use a flake, as described in :doc:`installing`.
 
