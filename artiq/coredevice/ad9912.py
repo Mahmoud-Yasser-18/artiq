@@ -42,15 +42,22 @@ class AD9912:
             self.sw = dmgr.get(sw_device)
             self.kernel_invariants.add("sw")
         self.pll_en = pll_en
-        self.pll_n = pll_n
         if pll_en:
             refclk = self.cpld.refclk
             if refclk < 11e6:
                 # use SYSCLK PLL Doubler
+                assert not (pll_n & 0b11), \
+                    "pll_n must be a multiple of 4 when using the SYSCLK PLL doubler"
                 refclk = refclk * 2
+                pll_n = pll_n // 2
+            else:
+                assert not (pll_n & 1), \
+                    "pll_n must be a multiple of 2 due to a fixed /2 prescaler"
             sysclk = refclk / [1, 1, 2, 4][self.cpld.clk_div] * pll_n
         else:
             sysclk = self.cpld.refclk
+        assert 4 <= pll_n <= 66, "PLL N-divider out of range"
+        self.pll_n = pll_n
         assert sysclk <= 1e9
         self.ftw_per_hz = 1 / sysclk * (int64(1) << 48)
 
