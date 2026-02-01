@@ -129,7 +129,7 @@ class Programmer:
         def rewriter(content):
             def repl(match):
                 return self._transfer_script(match.group(1).decode()).encode()
-            return re.sub(rb"\[find (.+?)\]", repl, content, re.DOTALL)
+            return re.sub(rb"\[find (.+?)\]", repl, content, flags=re.DOTALL)
 
         script = os.path.join(scripts_path(), script)
         return self._client.upload(script, rewriter)
