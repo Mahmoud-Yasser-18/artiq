@@ -111,24 +111,17 @@
 
       llvmlite-new = pkgs.python3Packages.buildPythonPackage rec {
         pname = "llvmlite";
-        version = "0.44.0";
+        version = "0.46.0";
         src = pkgs.fetchFromGitHub {
-            owner = "numba";
-            repo = "llvmlite";
-            rev = "v${version}";
-            sha256 = "sha256-ZIA/JfK9ZP00Zn6SZuPus30Xw10hn3DArHCkzBZAUV0=";
-          };
-        nativeBuildInputs = [ pkgs.llvm_15 ];
-        # Disable static linking
-        # https://github.com/numba/llvmlite/issues/93
-        postPatch = ''
-          substituteInPlace ffi/Makefile.linux --replace "-static-libstdc++" ""
-          substituteInPlace llvmlite/tests/test_binding.py --replace "test_linux" "nope"
-        '';
-        # Set directory containing llvm-config binary
-        preConfigure = ''
-          export LLVM_CONFIG=${pkgs.llvm_15.dev}/bin/llvm-config
-        '';
+          owner = "numba";
+          repo = "llvmlite";
+          rev = "v${version}";
+          sha256 = "sha256-mQFNfcOLmFYvYQGcgLi7G6iJDoTCm7hJfPh5hH9jPGc=";
+        };
+        nativeBuildInputs = [ pkgs.cmake pkgs.ninja ];
+        buildInputs = [ pkgs.llvm_20 pkgs.libxml2.dev ];
+        dontUseCmakeConfigure = true;
+        env.LLVMLITE_SHARED = false;
       };
 
       artiq-upstream = pkgs.python3Packages.buildPythonPackage rec {
@@ -144,7 +137,7 @@
 
         nativeBuildInputs = [ pkgs.qt5.wrapQtAppsHook ];
         # keep llvm_x and lld_x in sync with llvmlite
-        propagatedBuildInputs = [ pkgs.llvm_15 pkgs.lld_15 sipyco.packages.x86_64-linux.sipyco pythonparser llvmlite-new pkgs.qt5.qtsvg artiq-comtools.packages.x86_64-linux.artiq-comtools ]
+        propagatedBuildInputs = [ pkgs.llvm_20 pkgs.lld_20 sipyco.packages.x86_64-linux.sipyco pythonparser llvmlite-new pkgs.qt5.qtsvg artiq-comtools.packages.x86_64-linux.artiq-comtools ]
           ++ (with pkgs.python3Packages; [ pyqtgraph pygit2 numpy dateutil scipy prettytable pyserial levenshtein h5py pyqt5 qasync tqdm lmdb jsonschema ]);
 
         dontWrapQtApps = true;
@@ -167,10 +160,10 @@
           "--set FONTCONFIG_FILE ${pkgs.fontconfig.out}/etc/fonts/fonts.conf"
         ];
 
-        # FIXME: automatically propagate lld_15 llvm_15 dependencies
+        # FIXME: automatically propagate lld_20 llvm_20 dependencies
         # cacert is required in the check stage only, as certificates are to be
         # obtained from system elsewhere
-        nativeCheckInputs = with pkgs; [ lld_15 llvm_15 lit outputcheck cacert ] ++ [ libartiq-support ];
+        nativeCheckInputs = with pkgs; [ lld_20 llvm_20 lit outputcheck cacert ] ++ [ libartiq-support ];
         checkPhase = ''
           python -m unittest discover -v artiq.test
 
@@ -248,9 +241,9 @@
           nativeBuildInputs = [
             (pkgs.python3.withPackages(ps: [ migen misoc (artiq.withExperimentalFeatures experimentalFeatures) ps.packaging ]))
             rust
-            pkgs.llvmPackages_15.clang-unwrapped
-            pkgs.llvm_15
-            pkgs.lld_15
+            pkgs.llvmPackages_20.clang-unwrapped
+            pkgs.llvm_20
+            pkgs.lld_20
             vivado
             rustPlatform.cargoSetupHook
           ];
@@ -404,9 +397,9 @@
         buildInputs = [
           (pkgs.python3.withPackages(ps: with packages.x86_64-linux; [ migen misoc ps.paramiko microscope ps.packaging ] ++ artiq.propagatedBuildInputs ))
           rust
-          pkgs.llvmPackages_15.clang-unwrapped
-          pkgs.llvm_15
-          pkgs.lld_15
+          pkgs.llvmPackages_20.clang-unwrapped
+          pkgs.llvm_20
+          pkgs.lld_20
           pkgs.git
           artiq-frontend-dev-wrappers
           # To manually run compiler tests:
@@ -435,8 +428,8 @@
           (pkgs.python3.withPackages(ps: with packages.x86_64-linux; [ migen misoc artiq ps.packaging ]))
           rust
           pkgs.llvmPackages_15.clang-unwrapped
-          pkgs.llvm_15
-          pkgs.lld_15
+          pkgs.llvm_20
+          pkgs.lld_20
           packages.x86_64-linux.vivado
           packages.x86_64-linux.openocd-bscanspi
         ];
@@ -473,8 +466,8 @@
               ps.paramiko
             ] ++ ps.paramiko.optional-dependencies.ed25519
             ))
-            pkgs.llvm_15
-            pkgs.lld_15
+            pkgs.llvm_20
+            pkgs.lld_20
             pkgs.openssh
             packages.x86_64-linux.openocd-bscanspi  # for the bscanspi bitstreams
           ];
