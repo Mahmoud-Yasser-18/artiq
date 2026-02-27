@@ -912,7 +912,7 @@ class SinaraTester(EnvExperiment):
             for ch, volt in enumerate(volt_set):
                 self.setup_shuttler_set_output(card_dev["dcbias"], card_dev["dds"], card_dev["trigger"], ch, volt)
                 self.get_shuttler_output_voltage(card_dev["adc"], ch, setv)
-                if (abs(volt) - abs(output_voltage)) > 0.1:
+                if abs(volt - output_voltage) > 0.1:
                     passed = False
                 adc_readings.append(output_voltage)
 
