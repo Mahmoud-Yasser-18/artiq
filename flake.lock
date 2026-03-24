@@ -45,11 +45,11 @@
     "mozilla-overlay": {
       "flake": false,
       "locked": {
-        "lastModified": 1744624473,
-        "narHash": "sha256-S6zT/w5SyAkJ//dYdjbrXgm+6Vkd/k7qqUl4WgZ6jjk=",
+        "lastModified": 1762256096,
+        "narHash": "sha256-Hzj/d8eRpfRfjHSRX6gGRf0jSg2zIJMXl6S5opuKsHc=",
         "owner": "mozilla",
         "repo": "nixpkgs-mozilla",
-        "rev": "2292d4b35aa854e312ad2e95c4bb5c293656f21a",
+        "rev": "80c058cf774c198fb838fc3549806b232dd3e320",
         "type": "github"
       },
       "original": {
@@ -60,11 +60,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1761597516,
-        "narHash": "sha256-wxX7u6D2rpkJLWkZ2E932SIvDJW8+ON/0Yy8+a5vsDU=",
+        "lastModified": 1767313136,
+        "narHash": "sha256-16KkgfdYqjaeRGBaYsNrhPRRENs0qzkQVUooNHtoy2w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "daf6dc47aa4b44791372d6139ab7b25269184d55",
+        "rev": "ac62194c3917d5f474c1a844b6fd6da2db95077d",
         "type": "github"
       },
       "original": {
@@ -142,13 +142,13 @@
     "src-pythonparser": {
       "flake": false,
       "locked": {
-        "lastModified": 1628745371,
-        "narHash": "sha256-p6TgeeaK4NEmbhimEXp31W8hVRo4DgWmcCoqZ+UdN60=",
+        "lastModified": 1767427016,
+        "narHash": "sha256-E57okn+3gwvtXnF/qF/jypNYqijCLUYOEYLF9ZCzHpE=",
         "ref": "refs/heads/master",
-        "rev": "5413ee5c9f8760e95c6acd5d6e88dabb831ad201",
-        "revCount": 151,
+        "rev": "a2ace427c84ee5b1e9bd9dbc9b9337e50fc54077",
+        "revCount": 152,
         "type": "git",
-        "url": "https://git.m-labs.hk/M-Labs/pythonparser"
+        "url": "https://git.m-labs.hk/M-Labs/pythonparser.git"
       },
       "original": {
         "type": "git",
