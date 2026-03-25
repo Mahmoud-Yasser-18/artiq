@@ -128,6 +128,9 @@ class DummyScheduler:
     def check_pause(self, rid=None) -> TBool:
         return False
 
+    def check_termination(self, rid=None) -> TBool:
+        return False
+
     @host_only
     def pause(self):
         pass
