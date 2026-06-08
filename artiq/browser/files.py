@@ -7,6 +7,8 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 
 from sipyco import pyon
 
+import numpy as np
+
 
 logger = logging.getLogger(__name__)
 
@@ -208,7 +210,11 @@ class FilesDock(QtWidgets.QDockWidget):
                                            "and outputs", k)
                         # v.attrs is a non-serializable h5py.AttributeManager, need to convert to dict
                         # See https://docs.h5py.org/en/stable/high/attr.html#h5py.AttributeManager
-                        rd[k] = (True, v[()], dict(v.attrs))
+                        # HDF5 stores string datasets as bytes, which are not handled; restore the string type
+                        value = v[()]
+                        if np.issubdtype(type(value), np.bytes_):
+                            value = value.decode("utf-8", errors="replace")
+                        rd[k] = (True, value, dict(v.attrs))
 
                 f["datasets"].visititems(visitor)
 
