@@ -102,7 +102,7 @@ def short_format(v, metadata={}):
         v_str += " " + unit if unit else ""
         return v_str
     elif np.issubdtype(t, np.bool_):
-       return str(v)
+        return str(v)
     elif np.issubdtype(t, np.str_):
         return "\"" + elide(v, 50) + "\""
     elif t is np.ndarray:
