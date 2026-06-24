@@ -179,7 +179,7 @@ Alternatively, you may install `MSYS2 <https://msys2.org>`_, then edit ``C:\msys
 
     [artiq]
     SigLevel = Optional TrustAll
-    Server = https://msys2.m-labs.hk/artiq
+    Server = https://msys2.m-labs.hk/artiq-legacy
 
 Launch ``MSYS2 CLANG64`` from the Windows Start menu to open the MSYS2 shell, and enter the following commands: ::
 
