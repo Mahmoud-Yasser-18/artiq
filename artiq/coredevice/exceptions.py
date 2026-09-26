@@ -185,3 +185,7 @@ class SPIError(Exception):
 class UnwrapNoneError(Exception):
     """Raised when unwrapping a none Option."""
     artiq_builtin = True
+
+class CXPError(Exception):
+    """Raised when a CoaXPress transaction fails."""
+    artiq_builtin = True

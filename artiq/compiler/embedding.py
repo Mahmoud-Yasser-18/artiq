@@ -104,6 +104,7 @@ class EmbeddingMap:
             "0:IndexError",
             "UnwrapNoneError",
             "SubkernelError",
+            "CXPError",
         ])
 
     def preallocate_runtime_exception_names(self, names):
