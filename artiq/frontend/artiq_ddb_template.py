@@ -621,6 +621,18 @@ class PeripheralManager:
             channel=rtio_offset)
         return 2
 
+    def process_coaxpress_sfp(self, rtio_offset, peripheral):
+        self.gen("""
+            device_db["{name}"] = {{
+                "type": "local",
+                "module": "artiq.coredevice.cxp_grabber",
+                "class": "CXPGrabber",
+                "arguments": {{"channel": 0x{channel:06x}}}
+            }}""",
+            name=self.get_name("coaxpress_sfp"),
+            channel=rtio_offset)
+        return 3
+
     def process_fastino(self, rtio_offset, peripheral):
         self.gen("""
             device_db["{name}"] = {{

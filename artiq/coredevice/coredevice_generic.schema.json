@@ -146,7 +146,7 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum": ["dio", "dio_spi", "urukul", "novogorny", "sampler", "suservo", "zotino", "grabber", "mirny", "fastino", "phaser", "hvamp", "shuttler"]
+                    "enum": ["dio", "dio_spi", "urukul", "novogorny", "sampler", "suservo", "zotino", "grabber", "mirny", "fastino", "phaser", "hvamp", "shuttler", "coaxpress_sfp"]
                 },
                 "board": {
                     "type": "string"
@@ -641,6 +641,36 @@
                         }
                     },
                     "required": ["ports"]
+                }
+            }, {
+                "title": "CoaXPress-SFP",
+                "if": {
+                    "properties": {
+                        "type": {
+                            "const": "coaxpress_sfp"
+                        }
+                    }
+                },
+                "then": {
+                    "properties": {
+                        "channels": {
+                            "type": "integer",
+                            "enum": [1, 2, 4]
+                        },
+                        "roi_engine_count": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 32,
+                            "default": 16,
+                            "description": "Number of ROI engines."
+                        },
+                        "max_cxp_speed": {
+                            "type": "string",
+                            "enum": ["CXP-6", "CXP-10", "CXP-12"],
+                            "default": "CXP-6"
+                        }
+                    },
+                    "required": ["channels"]
                 }
             }]
         }
