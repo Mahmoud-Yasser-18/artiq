@@ -8,8 +8,11 @@
   inputs.artiq-comtools = { url = "https://git.m-labs.hk/M-Labs/artiq-comtools.git"; type = "git"; 
                             inputs.nixpkgs.follows = "nixpkgs"; inputs.sipyco.follows = "sipyco"; };
 
-  inputs.src-migen = { url = "https://git.m-labs.hk/M-Labs/migen.git"; type = "git"; flake = false; };
-  inputs.src-misoc = { url = "https://git.m-labs.hk/M-Labs/misoc.git"; type = "git"; submodules = true; flake = false; };
+  # Pinned to the multichannel-CoaXPress revisions required by the CXP grabber
+  # gateware (misoc.cores.coaxpress.core.stream_decoder). The release-8 default
+  # revs predate multichannel CXP; see PORTING_CXP_TO_ARTIQ8.md §8.1.
+  inputs.src-migen = { url = "https://git.m-labs.hk/M-Labs/migen.git"; rev = "311773c163cc73c7214d37e94da5f34d578f2e05"; type = "git"; flake = false; };
+  inputs.src-misoc = { url = "https://git.m-labs.hk/M-Labs/misoc.git"; rev = "b7db55e9fbb83b58f156c2a0e3051a7bc9a936e2"; type = "git"; submodules = true; flake = false; };
 
   outputs = { self, nixpkgs, mozilla-overlay, sipyco, src-pythonparser, artiq-comtools, src-migen, src-misoc }:
     let
